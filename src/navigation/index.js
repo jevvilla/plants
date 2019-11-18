@@ -1,19 +1,22 @@
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 
-import { Login, Forgot } from '../screens';
+import { Forgot, Login, Welcome } from '../screens';
 
 const AppNavigator = createStackNavigator(
   {
-    Login: {
-      screen: Login,
-    },
     Forgot: {
       screen: Forgot,
     },
+    Login: {
+      screen: Login,
+    },
+    Welcome: {
+      screen: Welcome,
+    },
   },
   {
-    initialRouteName: 'Login',
+    initialRouteName: 'Welcome',
   },
 );
 
