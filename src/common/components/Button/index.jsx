@@ -3,6 +3,8 @@ import React from 'react';
 import { TouchableOpacity } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 
+import colors from '../../colors';
+
 import styles from './styles';
 
 const Button = props => {
@@ -50,6 +52,16 @@ const Button = props => {
       {children}
     </TouchableOpacity>
   );
+};
+
+Button.defaultProps = {
+  startColor: colors.primary,
+  endColor: colors.secondary,
+  start: { x: 0, y: 0 },
+  end: { x: 1, y: 1 },
+  locations: [0.1, 0.9],
+  opacity: 0.8,
+  color: colors.white,
 };
 
 export default Button;
