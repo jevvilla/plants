@@ -1,10 +1,17 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import { Typography, Block, Button } from '../../common/components';
-
 import { sizes } from '../../common/styles';
+import { LOGIN, SIGNUP } from '../../navigation/routes';
 
-const Welcome = () => {
+const Welcome = props => {
+  const navigateTo = route => {
+    const { navigation } = props;
+
+    navigation.navigate(route);
+  };
+
   return (
     <Block>
       <Block center bottom flex={0.4}>
@@ -24,12 +31,12 @@ const Welcome = () => {
         {Welcome.renderSteps()}
       </Block>
       <Block middle flex={0.5} margin={[0, sizes.padding * 2]}>
-        <Button gradient opacity={0.5}>
+        <Button gradient opacity={0.5} onPress={() => navigateTo(LOGIN)}>
           <Typography center semibold white>
             Login
           </Typography>
         </Button>
-        <Button shadow opacity={0.5}>
+        <Button shadow opacity={0.5} onPress={() => navigateTo(SIGNUP)}>
           <Typography center>Signup</Typography>
         </Button>
         <Button>
@@ -58,6 +65,16 @@ Welcome.renderSteps = () => {
       <Typography>* * *</Typography>
     </Block>
   );
+};
+
+Welcome.propTypes = {
+  navigation: PropTypes.shape({
+    navigate: PropTypes.func.isRequired,
+  }),
+};
+
+Welcome.defaultProps = {
+  navigation: {},
 };
 
 export default Welcome;
