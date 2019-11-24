@@ -1,22 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Text, View, TouchableOpacity } from 'react-native';
 
-const Login = props => {
-  const { navigation } = props;
+import { Block, Typography } from '../../common/components';
 
-  const goToForgot = () => navigation.navigate('Forgot');
-
+const Login = () => {
   return (
-    <View>
-      <Text>Login</Text>
-      <TouchableOpacity onPress={goToForgot}>
-        <View>
-          <Text>Fotgot password</Text>
-        </View>
-      </TouchableOpacity>
-    </View>
+    <Block middle>
+      <Typography center bold>
+        Login
+      </Typography>
+    </Block>
   );
+};
+
+Login.navigationOptions = {
+  header: null,
 };
 
 Login.propTypes = {
